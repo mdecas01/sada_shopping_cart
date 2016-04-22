@@ -1,0 +1,51 @@
+<%= render 'layouts/flash' %>
+<%= form_tag products_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search], class: 'boxfield' %>
+    <%= submit_tag "Search", :name => nil , class: 'button' %>
+  </p>
+<% end %>
+
+<% if @products.empty? %>
+  <p>No products found!</p>
+<% else %>  
+  <% @products.each do |product| %>
+      <article class="product">
+        <header>
+          <h2><%= link_to product.name, product_path(product) %></h2>
+        </header>
+        <%= place_image(product) %>
+        <table>
+          <tr>
+            <p>
+              Description: <%= truncate(product.description, length: 10) %>
+            </p>
+          </tr>
+          <tr>
+            <p>
+             Price: <%= format_price(product) %>
+            </p>
+          </tr>
+          <tr>
+            <p>
+             Availability: <%= product_availability(product).html_safe %>
+            </p>
+          </tr>
+          <tr> 
+          <div id="av_review"> 
+            <p>
+              Average review: <%= place_rating(product.average_star_reviews).html_safe %>
+            </p> 
+          </div>   
+          </tr> 
+          <tr>
+            <p id="new_prod">
+             <%= new_product(product) %>
+            </p>
+          </tr>
+        </table>
+      </article>  
+  <% end %>
+<% end %>  
+ 
+

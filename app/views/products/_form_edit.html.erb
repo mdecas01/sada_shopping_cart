@@ -1,0 +1,59 @@
+<%= form_for(@product) do |f| %>
+  <%= render 'layouts/flash' %>
+  <%= render "errors/error_messages", object: @product %>
+  <fieldset>
+    <ol>
+      <li>
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true %>
+      </li>
+      <li>
+        <%= f.label :description %>
+        <%= f.text_area :description, cols: 40, rows: 7 %>
+      </li>
+      <li>
+        <%= f.label :price %>
+        <%= f.number_field :price, :step => "any" %>
+      </li>
+      <li>
+        <%= f.label :quantity %>
+        <%= f.number_field :quantity %>
+      </li>
+      <li>
+        <%= f.label :image_url %>
+        <%= f.text_field :image_url %>
+      </li>
+      <% if @product.categories.empty? %> 
+        <li>
+           <%= f.label :category_1 %>
+           <%= select_tag(:category1_id, options_for_select(Category.where(level: 1)))%>
+        </li> 
+        <li>
+           <%= f.label :category_2 %>
+           <%= select_tag(:category2_id, options_for_select(Category.where(level: 2)))%>
+        </li>
+        <li>
+           <%= f.label :category_3 %>
+           <%= select_tag(:category3_id, options_for_select(Category.where(level: 3)))%>
+        </li>
+      <% else %>
+        <li>
+           <%= f.label :category_1 %>
+           <%= select_tag(:category1_id, options_for_select(Category.where(level: 1), @product.categories.first )) %>
+        </li> 
+        <li>
+           <%= f.label :category_2 %>
+           <%= select_tag(:category2_id, options_for_select(Category.where(level: 2), @product.categories.second )) %>
+        </li>
+        <li>
+           <%= f.label :category_3 %>
+           <%= select_tag(:category3_id, options_for_select(Category.where(level: 3), @product.categories.third )) %>
+        </li>
+      <% end %>      
+    </ol>
+    <p>
+        <%= f.submit %>
+        <%= link_to "Cancel", products_path, class: 'button' %>
+      </p>
+ </fieldset>
+<% end %>

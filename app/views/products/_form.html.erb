@@ -1,0 +1,44 @@
+<%= form_for(@product) do |f| %>
+  <%= render 'layouts/flash' %>
+  <%= render "errors/error_messages", object: @product %>
+  <fieldset>
+    <ol>
+      <li>
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true %>
+      </li>
+      <li>
+        <%= f.label :description %>
+        <%= f.text_area :description, cols: 40, rows: 7 %>
+      </li>
+      <li>
+        <%= f.label :price %>
+        <%= f.number_field :price, :step => "any" %>
+      </li>
+      <li>
+        <%= f.label :quantity %>
+        <%= f.number_field :quantity %>
+      </li>
+      <li>
+        <%= f.label :image_url %>
+        <%= f.text_field :image_url %>
+      </li>
+      <li>
+         <%= f.label :category_1 %>
+         <%= collection_select(:category, :category1_id, Category.where(level: 1), :id, :name, prompt: "select one" ) %>
+      </li> 
+      <li>
+         <%= f.label :category_2 %>
+         <%= collection_select(:category, :category2_id, Category.where(level: 2), :id, :name, prompt: "select one") %>
+      </li>
+      <li>
+         <%= f.label :category_3 %>
+         <%= collection_select(:category, :category3_id, Category.where(level: 3), :id, :name, prompt: "select one") %>
+      </li> 
+    </ol>
+    <p>
+      <%= f.submit %>
+      <%= link_to "Cancel", products_path, class: 'button' %>
+    </p>
+  </fieldset>
+<% end %>

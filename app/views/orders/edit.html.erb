@@ -1,0 +1,7 @@
+<h1>Editing order for <%= @order.user.name %></h1>
+<% if admin_user? %>
+  <%= render 'form_edit' %>
+<% else %>
+  <h1>Add coupon</h1>
+  <%= render 'form_add_coupon' %>
+<% end %>  

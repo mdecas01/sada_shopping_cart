@@ -1,0 +1,48 @@
+	<nav>
+	  <ol> 
+	    <% if admin_user? %>
+	        <li>
+	          <%= link_to "Products", products_path, class: 'button' %>
+	        </li>
+		    <li>
+		      <%= link_to "New product", new_product_path(@product), class: 'button' %>
+		    </li> 
+		    <li>
+	          <%= link_to "Orders", orders_url, class: 'button' %>
+	        </li>
+	        <li>
+              <%= link_to "Users", users_path, class: 'button' %>
+	        </li> 
+	        <li>
+	          <%= link_to "New category", new_category_path, class: 'button' %>
+		    </li> 
+		    <li>
+	          <%= link_to "Categories", categories_path, class: 'button' %>
+		    </li>
+            <li>
+	          <%= link_to "Create coupon", new_coupon_path, class: 'button' %>
+		    </li>
+		<% else %> 
+            <li>
+	          <%= link_to "Products", products_path, class: 'button' %>
+	        </li>
+	        <% if logged_user %>
+	          <li>
+	            <%= link_to "My Account", user_path(logged_user), class: 'button' %>
+	          </li>
+	          <li>
+	            <%= link_to "My wishlist", user_wishlist_path(logged_user, Wishlist.where(user_id:  logged_user)), class: 'button' %>
+	          </li>
+	          <li>
+	            <%= link_to "My orders", orders_url, class: 'button' %>
+	          </li>
+	        <% end %> 
+	        <li>
+	          <%= link_to "Wishlists", wishlists_path, class: 'button' %>
+	        </li>  
+	        <li>
+	          <%= link_to "Categories", categories_path, class: 'button' %>
+		    </li>  
+		<% end %>       
+	  </ol>  
+	</nav>

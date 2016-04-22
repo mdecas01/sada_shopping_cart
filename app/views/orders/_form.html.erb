@@ -1,0 +1,20 @@
+<%= form_for(@order) do |f| %>
+  <%= render "errors/error_messages", object: @order %>
+  <h2>Your order total is: <%= number_to_currency(@cart.total_price(@cart.coupon), unit: "£") %></h2>
+  <fieldset>
+    <ol>
+      <li>
+        <%= f.label :address %>
+        <%= f.text_area :address, cols: 40, rows: 7 %>
+      </li>
+      <li>
+        <%= f.label :payment_type %>
+        <%= f.select :payment_type, Order::PAYMENT, prompt: "Payment type" %>
+      </li>  
+    </ol>
+    <p>
+      <%= f.submit %>
+      <%= link_to "Cancel", cart_url(@cart), method: :get, class: 'button' %>
+    </p>
+  </fieldset>
+<% end %>

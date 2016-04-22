@@ -1,0 +1,22 @@
+<div id="cart">
+<% if logged_user %>
+  <h2><%= logged_user.name %>'s cart</h2>
+<% else %>
+  <h2>Shopping cart</h2>
+<% end %>  
+  <p>You have <%= pluralize(check_product_quantities(@cart), 'product')  %> in your shopping cart</p>
+  <table>
+  <% @cart.product_items.each do |item| %>
+    <tr>
+      <td><%= item.quantity %>x </td>
+      <td><%= item.product.name %></td>
+      <td><%= number_to_currency(item.total_price, unit: "£") %></td>
+    </tr> 
+  <% end %>     
+  <tr class="total_value">
+    <td><%= content_tag(:strong, 'Total:') %> </td>
+    <td class="tot"><%= number_to_currency(@cart.total_price(@cart.coupon), unit: "£") %></td>
+  </tr>	
+  </table>
+  <p>Have a discount coupon? Click <%= link_to 'HERE', edit_cart_path(@cart) %> </p>
+  </div>

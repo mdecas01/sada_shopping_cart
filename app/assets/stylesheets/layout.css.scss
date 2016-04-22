@@ -1,0 +1,278 @@
+@import 'color_schem';
+
+div#main {
+  width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  
+      
+
+      div#sidebar {
+        border-right: 3px solid #808080;
+        float:left;
+        width: 15%;
+        margin-bottom: -9999px;
+        padding-bottom: 9999px;
+        background-color: $green-color;
+        a.button {
+          width: 80%;
+          text-align: center;
+        }
+      }
+
+      div#content {
+        padding-left: 30px;
+        padding-left: 100px;
+        marging-top: 20px;
+        width: 50%;
+        float: left;
+        overflow: hidden;
+        white-space: nowrap;
+
+         #left {
+          float: left;
+          
+         } 
+
+         #right {
+          float: left;
+          overflow: hidden;
+          padding: 20px 10px;
+          
+         }
+
+         #pro_img {
+           white-space: nowrap;
+         }
+
+        h1 {
+          margin: 0;
+          padding: 0 0 20px 0;
+        }
+
+        img {
+          float: left;
+          margin: 30px 40px 20px 0;
+        }
+      }
+
+      div#cart {
+        float: right;
+        
+  top: 30px;
+  right: 5px;
+  bottom: 0;
+  left: 0;
+}
+}  
+
+  
+header#pheader {
+  background-color: $green-color;
+  padding: 0px 25px;
+
+  h1 a {
+    height: 50px;
+    padding: 20px;
+    display: block;
+    font-family: "Esteban", sans-serif;
+    color: #000;
+    text-decoration: none;
+    overflow: hidden;
+    background: image-url("sadalogo.png") no-repeat 10px 10px;
+  }
+
+
+  div#headernav {
+    margin: 0 auto;
+    width: 960px;
+    position: relative;
+    text-color: #000;
+
+    h1 {
+      margin: 0;
+      color: #fff;
+      line-height: 60px;
+    }
+
+    nav {
+      margin: 0;
+      position: absolute;
+      color: blue;
+      top: 0;
+      right: 0;
+      height: 60px;
+      a {
+        color: #FFF;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+ 
+footer#p-footer { 
+  padding: 5px; 
+  color: $grey-color; 
+  background: $green-color;
+  border-top: 5px solid darken($button-color, 5%);
+
+  p {
+    text-align: center;
+  }
+}
+
+div#container {
+  margin: 10px auto;
+}
+
+#prod_links {
+  margin-bottom: 1cm; 
+}
+
+div.field_with_errors {
+  label {
+    color: $erros-color;
+  }
+
+  input, textarea, select {
+    background: $areas-color;
+  }
+}
+
+fieldset {
+    width: 400px;
+    height: 570px;
+    background: $form_color;
+    border-radius: 15px;
+    display: block;
+
+    li {
+      display: block;
+    }
+
+      label {
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: .25em;
+  }
+}
+
+div.form_wrapper {
+  padding-left: 50px;
+  margin-bottom: 15px;
+}
+
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0 0 20px 0;
+      padding: 0;
+      margin-bottom: 5px;
+
+      &.required label {
+        font-weight: bold;
+      }
+    }
+  }
+
+div#error_messages {
+  width: 425px;
+  border-radius: 15px;
+  background: $form_color;
+  h3 {
+    color: red;
+    margin-left: 10px;
+  }
+
+  h2 {
+    margin: 10px 0  0 10px;
+  }
+} 
+
+
+#new_prod {
+  color: red;
+}
+
+.flash {
+  border-radius: 4px;
+  padding: 20px;
+  width: 500px;
+  height: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  
+  &.notice {
+    background-color: $notice-color;
+  }
+
+  &.alert {
+    background-color: red;
+  }
+}
+
+.total_value {
+  position: relative;
+  left: 90px;
+
+  .tot {
+    font-weight: bold;
+    border-top: 1px solid #000;
+  }
+}
+
+
+.boxfield {
+  width: 500px;
+}
+
+div#instock {
+  color: green;
+}
+
+div#outstock {
+  color: red;
+}
+
+.rate_img {
+   
+ }
+
+ div#av_review {
+   
+ }
+
+div#not_available {
+  color: red;
+}
+
+.button_review {
+  display: inline-block;
+  border: 1px #FFFF00 solid;
+  border-radius: 5px;
+  color: white;
+  background-color: #9dc209;
+  padding: 4px 6px;
+  text-decoration: none;
+  
+  margin: 5px;
+  
+
+  &:hover {
+    background-color: #62bcfa;
+    color: #fff;
+  }
+}
+
+.admin_selec_field {
+  display: none;
+}
+
+
